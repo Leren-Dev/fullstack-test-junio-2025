@@ -1,0 +1,15 @@
+node_modules
+build
+dist
+dev-dist
+coverage
+.vscode
+.DS_STORE
+tmp
+
+.env
+.env.*
+!.env.example
+
+.vscode
+.vscode/*

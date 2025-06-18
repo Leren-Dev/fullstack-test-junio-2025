@@ -1,0 +1,86 @@
+{
+  "typescript": true,
+  "commands": [
+    "./commands",
+    "@adonisjs/core/build/commands/index.js",
+    "@adonisjs/repl/build/commands",
+    "@adonisjs/lucid/build/commands",
+    "@adonisjs/bouncer/build/commands",
+    "@adonisjs/mail/build/commands"
+  ],
+  "exceptionHandlerNamespace": "App/Exceptions/Handler",
+  "aliases": {
+    "App": "app",
+    "Config": "config",
+    "Database": "database",
+    "Contracts": "contracts"
+  },
+  "preloads": [
+    "./start/routes",
+    "./start/kernel",
+    "./start/bouncer",
+    {
+      "file": "./start/events",
+      "environment": [
+        "console",
+        "repl",
+        "web"
+      ]
+    },
+    {
+      "file": "./start/repl",
+      "environment": [
+        "repl"
+      ]
+    }
+  ],
+  "providers": [
+    "./providers/AppProvider",
+    "@adonisjs/core",
+    "@adonisjs/lucid",
+    "@adonisjs/auth",
+    "@adonisjs/bouncer",
+    "@adonisjs/mail",
+    "@adonisjs/view",
+    "@adonisjs/ally",
+    "./providers/HashidsProvider",
+    "adonis-lucid-soft-deletes",
+    "adonis-request-throttler",
+    "@adonisjs/session",
+    "@adonisjs/shield"
+  ],
+  "aceProviders": [
+    "@adonisjs/repl"
+  ],
+  "metaFiles": [
+    {
+      "pattern": "public/**",
+      "reloadServer": false
+    },
+    {
+      "pattern": "resources/views/**/*.edge",
+      "reloadServer": false
+    }
+  ],
+  "tests": {
+    "suites": [
+      {
+        "name": "functional",
+        "files": [
+          "tests/functional/**/*.spec(.ts|.js)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "name": "unit",
+        "files": [
+          "tests/unit/**/*.spec(.ts|.js)"
+        ],
+        "timeout": 60000
+      }
+    ]
+  },
+  "testProviders": [
+    "@japa/preset-adonis/TestsProvider"
+  ]
+}
