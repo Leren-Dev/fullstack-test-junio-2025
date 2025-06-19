@@ -6,23 +6,25 @@ import Hashids from '@ioc:Adonis/Addons/Hashids'
 
 export default class UsersController {
   public async index({}: HttpContextContract) {
+    // TODO: Refactor - Mover esta implementación a UserService
     return User.all()
   }
 
   public async store({}: HttpContextContract) {
-    // TODO:
+    // TODO: implement
   }
 
   public async show({}: HttpContextContract) {
-    // TODO: decode hashid
+    // TODO: decode hashid + implement
   }
 
   public async update({}: HttpContextContract) {
-    // TODO: decode hashid
+    // TODO: decode hashid + implement
   }
 
   public async destroy({ auth, params, request, response, route, routeKey }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Mover esta implementación a UserService
       const userId = Hashids.decode(params.id)[0] as number
       const userService = new UserService(userId)
       const currentUser = await userService.getUser()

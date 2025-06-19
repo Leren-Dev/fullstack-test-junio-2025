@@ -5,6 +5,7 @@ import Hashids from '@ioc:Adonis/Addons/Hashids'
 export default class CustomerCategoriesController {
   public async index({ auth, request, response }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Crear CustomerCategoryService y mover esta implementación a CustomerCategoryService
       const page: number = request.input('page', 1)
       const limit: number = 100
       const search: string = request.input('search', '')
@@ -94,6 +95,7 @@ export default class CustomerCategoriesController {
 
   public async store({ auth, request, response }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Crear CustomerCategoryService y mover esta implementación a CustomerCategoryService
       const name = request.input('name')
       const description = request.input('description')
 
@@ -127,6 +129,7 @@ export default class CustomerCategoriesController {
 
   public async destroy({ auth, params, response }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Crear CustomerCategoryService y mover esta implementación a CustomerCategoryService
       const id = Hashids.decode(params.id)[0] as number
 
       const customerCategory = await CustomerCategory.query()

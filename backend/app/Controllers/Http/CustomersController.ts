@@ -28,6 +28,7 @@ export default class CustomersController {
 
   public async getName({ auth, params, response }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Mover esta implementación a CustomerService
       const id = Hashids.decode(params.id)[0] as number
 
       if (id) {
@@ -58,6 +59,7 @@ export default class CustomersController {
 
   public async show({ auth, params, response }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Mover esta implementación a CustomerService
       const id = Hashids.decode(params.id)[0] as number
       const customer = await Customer.query()
         .where('storeId', auth.user.currentStoreId)
@@ -76,6 +78,7 @@ export default class CustomersController {
 
   public async update({ auth, params, request, response }: HttpContextContract) {
     if (auth.user && auth.user.currentStoreId) {
+      // TODO: Refactor - Mover esta implementación a CustomerService
       const id = Hashids.decode(params.id)[0] as number
       const requestData = request.all()
       const newData = {
@@ -103,6 +106,6 @@ export default class CustomersController {
   }
 
   public async destroy({}: HttpContextContract) {
-    // TODO: decode hashid
+    // TODO: decode hashid + implement
   }
 }

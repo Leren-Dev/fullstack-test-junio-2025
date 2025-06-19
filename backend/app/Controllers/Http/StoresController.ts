@@ -5,20 +5,24 @@ import StoreConfig from 'App/Models/StoreConfig'
 import StoreConfigValue from 'App/Models/StoreConfigValue'
 
 export default class StoresController {
-  public async index({}: HttpContextContract) {}
+  public async index({}: HttpContextContract) {
+    // TODO: implement
+  }
 
-  public async store({}: HttpContextContract) {}
+  public async store({}: HttpContextContract) {
+    // TODO: implement
+  }
 
   public async show({}: HttpContextContract) {
-    // TODO: decode hashid
+    // TODO: decode hashid + implement
   }
 
   public async update({}: HttpContextContract) {
-    // TODO: decode hashid
+    // TODO: decode hashid + implement
   }
 
   public async destroy({}: HttpContextContract) {
-    // TODO: decode hashid
+    // TODO: decode hashid + implement
   }
 
   public async getCurrent({ auth, response }: HttpContextContract) {
@@ -75,6 +79,7 @@ export default class StoresController {
 
   public async updateStoreConfig({ auth, request, response }: HttpContextContract) {
     if (auth.user) {
+      // TODO: Refactor - Mover esta implementación a StoreService
       const data = request.input('data')
       /* data = {
         type: 'sales' | 'application:business_rules',
